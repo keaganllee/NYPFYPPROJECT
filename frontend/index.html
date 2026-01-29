@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <!-- HTML Meta Tags -->
+  <title> Face & Full Body Tracking</title>
+  <meta name="description" content="Animate character faces, poses and fingers in 3D using just your browser webcam!" />
+
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content="https://3d.kalidoface.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Kalidoface 3D - Face & Full Body Tracking" />
+  <meta property="og:description"
+    content="Animate character faces, poses and fingers in 3D using just your browser webcam!" />
+  <meta property="og:image" content="https://yeemachine.github.io/k2021/favicon/kalidoface3d/meta.jpg" />
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="twitter:domain" content="3d.kalidoface.com" />
+  <meta property="twitter:url" content="https://3d.kalidoface.com/" />
+  <meta name="twitter:title" content="Kalidoface 3D - Face & Full Body Tracking" />
+  <meta name="twitter:description"
+    content="Animate character faces, poses and fingers in 3D using just your browser webcam!" />
+  <meta name="twitter:image" content="https://yeemachine.github.io/k2021/favicon/kalidoface3d/meta.jpg" />
+
+  <link rel="manifest" href="./manifest.json" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport"
+    content="viewport-fit=cover, user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta name="theme-color" content="#16161d" />
+  <base href="%PUBLIC_URL%" />
+  <link rel="stylesheet" href="./global.css" />
+  <script>
+    var parcelRequire;
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.3.1620248257/drawing_utils.js"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/holistic@0.5.1635989137/holistic.js"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.4.1633559619/face_mesh.min.js"
+    crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="https://yeemachine.github.io/k2021/favicon/kalidoface3d/icon-circle.svg" />
+
+  <link rel="apple-touch-icon" href="https://yeemachine.github.io/k2021/favicon/kalidoface3d/apple-icon-180.png" />
+
+  <link rel="apple-touch-startup-image" href="https://yeemachine.github.io/k2021/splash/apple-splash-2048-2732.jpg"
+    media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="https://yeemachine.github.io/k2021/splash/apple-splash-2732-2048.jpg"
+    media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+  <link rel="apple-touch-startup-image" href="https://yeemachine.github.io/k2021/splash/apple-splash-1668-2388.jpg"
+    media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="https://yeemachine.github.io/k2021/splash/apple-splash-2388-1668.jpg"
+    media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+  <link rel="apple-touch-startup-image" href="https://yeemachine.github.io/k2021/splash/apple-splash-1536-2048.jpg"
+    media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="https://yeemachine.github.io/k2021/splash/apple-splash-2048-1536.jpg"
+    media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+  <link rel="apple-touch-startup-image" href="https://yeemachine.github.io/k2021/splash/apple-splash-1668-2224.jpg"
+    media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="https://yeemachine.github.io/k2021/splash/apple-splash-2224-1668.jpg"
+    media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+  <link rel="apple-touch-startup-image" href="https://yeemachine.github.io/k2021/splash/apple-splash-1620-2160.jpg"
+    media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="https://yeemachine.github.io/k2021/splash/apple-splash-2160-1620.jpg"
+    media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+  <link rel="apple-touch-startup-image" href="https://yeemachine.github.io/k2021/splash/apple-splash-1284-2778.jpg"
+    media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="https://yeemachine.github.io/k2021/splash/apple-splash-2778-1284.jpg"
+    media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+  <link rel="apple-touch-startup-image" href="https://yeemachine.github.io/k2021/splash/apple-splash-1170-2532.jpg"
+    media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="https://yeemachine.github.io/k2021/splash/apple-splash-2532-1170.jpg"
+    media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+  <link rel="apple-touch-startup-image" href="https://yeemachine.github.io/k2021/splash/apple-splash-1125-2436.jpg"
+    media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="https://yeemachine.github.io/k2021/splash/apple-splash-2436-1125.jpg"
+    media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+  <link rel="apple-touch-startup-image" href="https://yeemachine.github.io/k2021/splash/apple-splash-1242-2688.jpg"
+    media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="https://yeemachine.github.io/k2021/splash/apple-splash-2688-1242.jpg"
+    media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+  <link rel="apple-touch-startup-image" href="https://yeemachine.github.io/k2021/splash/apple-splash-828-1792.jpg"
+    media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="https://yeemachine.github.io/k2021/splash/apple-splash-1792-828.jpg"
+    media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+  <link rel="apple-touch-startup-image" href="https://yeemachine.github.io/k2021/splash/apple-splash-1242-2208.jpg"
+    media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="https://yeemachine.github.io/k2021/splash/apple-splash-2208-1242.jpg"
+    media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+  <link rel="apple-touch-startup-image" href="https://yeemachine.github.io/k2021/splash/apple-splash-750-1334.jpg"
+    media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="https://yeemachine.github.io/k2021/splash/apple-splash-1334-750.jpg"
+    media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+  <link rel="apple-touch-startup-image" href="https://yeemachine.github.io/k2021/splash/apple-splash-640-1136.jpg"
+    media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="https://yeemachine.github.io/k2021/splash/apple-splash-1136-640.jpg"
+    media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5V3VF28');</script>
+  <!-- End Google Tag Manager -->
+  <script type="module" crossorigin src="./assets/index.e2bec78d.js"></script>
+  <link rel="modulepreload" href="./assets/vendor.832d142e.js">
+  <link rel="stylesheet" href="./assets/index.1b91a8e8.css">
+  <!-- Custom overrides for standalone build -->
+  <link rel="stylesheet" href="./custom.css">
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5V3VF28" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <!-- Changed the watermark text from the original Kalidoface branding to a generic placeholder. -->
+  <h1 class="notranslate">Placeholder</h1>
+  <!-- Floating entry button -->
+  <button id="voice-btn" aria-label="Voice Changer" title="Voice Changer">
+    <span>&#9742;</span>
+  </button>
+
+  <!-- Voice Changer Panel -->
+  <div id="voice-panel" class="voice-panel hidden">
+    <div class="voice-panel-header">
+      <span class="panel-title">Voice Changer</span>
+      <span class="close" aria-label="Close panel">&times;</span>
+    </div>
+    <div class="voice-panel-content">
+      <button type="button" data-voice="female" class="voice-option voice-female">Female</button>
+      <button type="button" data-voice="male" class="voice-option voice-male">Male</button>
+      <button type="button" data-voice="elmo" class="voice-option voice-elmo selected">Elmo</button>
+      <button type="button" data-voice="elmo-fish" class="voice-option voice-elmo-fish">Elmo (Fish)</button>
+      <button type="button" id="pip-open" class="voice-option voice-pip">Tracking Preview</button>
+    </div>
+
+    <!-- Controls Area -->
+    <div class="voice-controls-area">
+      <!-- Status & Progress -->
+      <div class="status-container">
+        <div id="status-msg">Ready to Record</div>
+        <div id="progress-container" class="hidden">
+          <div id="progress-bar"></div>
+        </div>
+      </div>
+
+      <!-- Buttons Row -->
+      <div class="buttons-row">
+        <!-- Record Button -->
+        <button type="button" id="btn-record" class="control-btn btn-record" aria-label="Record">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+            <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z" />
+            <path
+              d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z" />
+          </svg>
+        </button>
+
+        <!-- Play Button (Initially Disabled) -->
+        <button type="button" id="btn-play" class="control-btn btn-play" disabled aria-label="Play">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tracking Preview -->
+  <div id="tracking-preview" class="tracking-preview hidden"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/holistic@0.5.1635989137/holistic.js"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.3.1620248257/drawing_utils.js"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3.1632432234/camera_utils.js"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+  <script>
+    (() => {
+      const VOICES = {
+        'female': 3,
+        'male': -6,
+        'elmo': 8,   // Reduced from 12 to 8 for stability
+        'elmo-fish': 0, // No client-side shift
+        'pip': 0
+      };
+
+      let currentVoice = 'elmo';
+
+      // UI elements
+      const voiceBtn = document.getElementById('voice-btn');
+      const voicePanel = document.getElementById('voice-panel');
+      const closeBtn = voicePanel.querySelector('.close');
+
+      const btnRecord = document.getElementById('btn-record');
+      const btnPlay = document.getElementById('btn-play');
+      const statusMsg = document.getElementById('status-msg');
+      const progressContainer = document.getElementById('progress-container');
+      const progressBar = document.getElementById('progress-bar');
+
+      const pipBtn = document.getElementById('pip-open');
+      const trackingPreview = document.getElementById('tracking-preview');
+
+      // Audio State
+      let mediaRecorder;
+      let recordedChunks = [];
+      let player = null;
+      let pitchShift = null;
+      let highPass = null;
+      let audioBlobURL = null;
+
+      // Interaction State
+      let isRecording = false;
+      let isPlaying = false;
+      let hasRecording = false;
+
+      // Tracking State
+      let camera = null;
+      let holistic = null;
+
+      // --- Functions ---
+
+      function updateStatus(msg) {
+        statusMsg.textContent = msg;
+      }
+
+      function openPanel() {
+        voicePanel.classList.remove('hidden');
+        voicePanel.classList.add('open');
+        Tone.start();
+      }
+
+      function closePanel() {
+        voicePanel.classList.remove('open');
+        setTimeout(() => voicePanel.classList.add('hidden'), 300);
+        stopEverything();
+      }
+
+      function stopEverything() {
+        if (isRecording) stopRecordingLogic();
+        if (isPlaying) stopPlaybackLogic();
+        resetUI();
+      }
+
+      function resetUI() {
+        isRecording = false;
+        isPlaying = false;
+
+        btnRecord.classList.remove('recording');
+        btnRecord.innerHTML = `<svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>`;
+
+        btnPlay.classList.remove('playing');
+        btnPlay.innerHTML = `<svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>`;
+
+        // If we have a recording, Play button should be enabled
+        btnPlay.disabled = !hasRecording;
+
+        updateStatus(hasRecording ? "Ready to Play" : "Ready to Record");
+        progressContainer.classList.add('hidden');
+        progressBar.style.width = '0%';
+      }
+
+      // --- Record Logic ---
+
+      async function toggleRecord() {
+        await Tone.start();
+        if (isRecording) {
+          stopRecordingLogic();
+        } else {
+          // If playing, stop playback first
+          if (isPlaying) stopPlaybackLogic();
+          startRecordingLogic();
+        }
+      }
+
+      let recordedMimeType = 'audio/webm'; // Default fallback
+
+      async function startRecordingLogic() {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+          // Check supported mime types
+          const mimeTypes = [
+            'audio/webm;codecs=opus',
+            'audio/webm',
+            'audio/ogg;codecs=opus',
+            'audio/mp4',
+            ''
+          ];
+
+          let options = {};
+          for (const type of mimeTypes) {
+            if (MediaRecorder.isTypeSupported(type)) {
+              options = { mimeType: type };
+              recordedMimeType = type;
+              break;
+            }
+          }
+
+          recordedChunks = [];
+          mediaRecorder = new MediaRecorder(stream, options);
+          // Fallback if options failed to capture type (improbable but safe)
+          if (!recordedMimeType) recordedMimeType = mediaRecorder.mimeType || 'audio/webm';
+
+          mediaRecorder.ondataavailable = e => {
+            if (e.data.size > 0) recordedChunks.push(e.data);
+          };
+
+          mediaRecorder.onstop = () => {
+            stream.getTracks().forEach(t => t.stop());
+            processRecording();
+          };
+
+          mediaRecorder.start();
+          isRecording = true;
+          hasRecording = false;
+          btnPlay.disabled = true;
+
+          // UI Update
+          btnRecord.classList.add('recording');
+          btnRecord.innerHTML = `<svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><rect x="6" y="6" width="12" height="12" /></svg>`;
+          updateStatus("Recording...");
+
+        } catch (err) {
+          console.error(err);
+          alert("Microphone access denied or error starting recorder.");
+          resetUI();
+        }
+      }
+
+      function stopRecordingLogic() {
+        if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+          mediaRecorder.stop();
+        }
+        isRecording = false;
+        btnRecord.classList.remove('recording');
+        btnRecord.innerHTML = `<svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>`;
+      }
+
+      // --- Processing Simulation ---
+
+      function processRecording() {
+        updateStatus("Transforming Voice...");
+        progressContainer.classList.remove('hidden');
+
+        let progress = 0;
+        const interval = setInterval(() => {
+          progress += 5;
+          progressBar.style.width = `${progress}%`;
+
+          if (progress >= 100) {
+            clearInterval(interval);
+            finishProcessing();
+          }
+        }, 50);
+      }
+
+      function finishProcessing() {
+        // Create URL using the detected mimeType
+        const options = recordedMimeType ? { type: recordedMimeType } : { type: 'audio/webm' };
+        const blob = new Blob(recordedChunks, options);
+
+        if (currentVoice === 'elmo-fish') {
+          updateStatus("Transcribing & Generating with Fish Audio...");
+          const formData = new FormData();
+          formData.append('file', blob, 'recording.webm');
+
+          fetch('http://localhost:8000/api/fish', {
+            method: 'POST',
+            body: formData
+          })
+            .then(async res => {
+              if (!res.ok) {
+                const txt = await res.text();
+                throw new Error(txt || res.statusText);
+              }
+              return res.blob();
+            })
+            .then(fishBlob => {
+              if (audioBlobURL) URL.revokeObjectURL(audioBlobURL);
+              audioBlobURL = URL.createObjectURL(fishBlob);
+              console.log(`Received Fish Blob: ${fishBlob.size} bytes`);
+
+              hasRecording = true;
+              resetUI();
+              updateStatus("Fish Audio Generated! Ready to Play.");
+              setTimeout(() => { if (!isRecording && !isPlaying) progressContainer.classList.add('hidden'); }, 1000);
+            })
+            .catch(err => {
+              console.error("Fish Audio Error:", err);
+              updateStatus("Error: " + err.message);
+              resetUI();
+            });
+          return;
+        }
+
+        if (audioBlobURL) URL.revokeObjectURL(audioBlobURL);
+        audioBlobURL = URL.createObjectURL(blob);
+
+        console.log(`Created blob: ${blob.size} bytes, type: ${blob.type}`);
+
+        hasRecording = true;
+        resetUI();
+        // Small delay before enabling Play to ensure UI settles
+        setTimeout(() => {
+          if (hasRecording) updateStatus("Transformation Complete! Ready to Play.");
+        }, 100);
+
+        setTimeout(() => {
+          if (!isRecording && !isPlaying) progressContainer.classList.add('hidden');
+        }, 1000);
+      }
+
+      // --- Playback Logic ---
+
+      async function togglePlay() {
+        await Tone.start();
+        // Force Resume context just in case
+        if (Tone.context.state !== 'running') {
+          await Tone.context.resume();
+        }
+
+        if (isPlaying) {
+          stopPlaybackLogic();
+        } else {
+          if (isRecording) stopRecordingLogic();
+          startPlaybackLogic();
+        }
+      }
+
+      function startPlaybackLogic() {
+        if (!hasRecording || !audioBlobURL) return;
+
+        updateStatus("Loading Audio...");
+
+        if (player) player.dispose();
+        if (pitchShift) pitchShift.dispose();
+        if (highPass) highPass.dispose();
+
+        // Load into Tone.Buffer
+        const buffer = new Tone.Buffer(
+          audioBlobURL,
+          () => { // On Load Success
+            console.log("Buffer loaded successfully");
+            updateStatus("Playing...");
+
+            player = new Tone.Player(buffer);
+            player.loop = false;
+            player.onstop = () => {
+              isPlaying = false;
+              resetUI();
+            };
+
+            const shiftAmount = VOICES[currentVoice] || 0;
+            let lastNode = player;
+
+            // Effects Chain
+            // Note: PitchShift > +12 semitones often causes silence/artifacts in Tone.js
+            if (currentVoice === 'elmo') {
+              highPass = new Tone.Filter(500, 'highpass');
+              lastNode.connect(highPass);
+              lastNode = highPass;
+            }
+
+            if (shiftAmount !== 0) {
+              pitchShift = new Tone.PitchShift(shiftAmount);
+              // Use standard windowSize for stability
+              pitchShift.windowSize = 0.1;
+              // Add slight delay time or feedback if needed, but default is usually safe
+              lastNode.connect(pitchShift);
+              lastNode = pitchShift;
+            }
+
+            lastNode.toDestination();
+            player.start();
+
+            isPlaying = true;
+            btnPlay.classList.add('playing');
+            btnPlay.innerHTML = `<svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><rect x="6" y="6" width="12" height="12" /></svg>`;
+            updateStatus("Playing... Click to Stop");
+          },
+          (err) => { // On Load Error
+            console.error("Error loading buffer:", err);
+            updateStatus("Error: Could not decode audio.");
+            resetUI();
+          }
+        );
+      }
+
+      function stopPlaybackLogic() {
+        if (player) player.stop();
+        isPlaying = false;
+        resetUI();
+      }
+
+      // --- Misc ---
+
+      function selectVoice(voice) {
+        if (VOICES.hasOwnProperty(voice)) currentVoice = voice;
+        else currentVoice = 'elmo';
+        resetUI(); // Reset state when voice changes? (Optional, maybe keep recording)
+        // Actually, let's keep the recording valid but re-process on play (since effects are applied at runtime)
+        // So no need to wipe recording.
+      }
+
+      // --- Tracking --- (Standard MediaPipe)
+      function initTracking() { /* ... Same as before ... */
+        const videoElement = document.createElement('video');
+        videoElement.style.display = 'none';
+        videoElement.style.transform = 'scaleX(-1)';
+        const canvasElement = document.createElement('canvas');
+        canvasElement.width = 320; canvasElement.height = 240;
+        const canvasCtx = canvasElement.getContext('2d');
+        const closePreviewBtn = document.createElement('button');
+        closePreviewBtn.innerHTML = '&times;'; closePreviewBtn.className = 'close-preview';
+        closePreviewBtn.onclick = () => {
+          trackingPreview.classList.add('hidden');
+          trackingPreview.innerHTML = '';
+        };
+
+        trackingPreview.innerHTML = '';
+        trackingPreview.appendChild(videoElement);
+        trackingPreview.appendChild(canvasElement);
+        trackingPreview.appendChild(closePreviewBtn);
+
+        const holistic = new Holistic({ locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/holistic@0.5.1635989137/${file}` });
+        holistic.setOptions({ modelComplexity: 1, smoothLandmarks: true, enableSegmentation: true, smoothSegmentation: true, refineFaceLandmarks: true, minDetectionConfidence: 0.5, minTrackingConfidence: 0.5 });
+        holistic.onResults(results => {
+          canvasCtx.save();
+          canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+          canvasCtx.translate(canvasElement.width, 0); canvasCtx.scale(-1, 1);
+          canvasCtx.filter = 'grayscale(100%)';
+          canvasCtx.drawImage(results.image, 0, 0, canvasElement.width, canvasElement.height);
+          canvasCtx.filter = 'none';
+          // DrawUtils calls... (Assuming global scope from script tags)
+          if (window.drawConnectors) {
+            drawConnectors(canvasCtx, results.faceLandmarks, FACEMESH_TESSELATION, { color: '#C0C0C070', lineWidth: 1 });
+            drawConnectors(canvasCtx, results.poseLandmarks, POSE_CONNECTIONS, { color: '#ffffff', lineWidth: 2 });
+            drawLandmarks(canvasCtx, results.poseLandmarks, { color: '#ff0000', lineWidth: 1 });
+            drawConnectors(canvasCtx, results.leftHandLandmarks, HAND_CONNECTIONS, { color: '#ffffff', lineWidth: 2 });
+            drawLandmarks(canvasCtx, results.leftHandLandmarks, { color: '#ff0000', lineWidth: 1 });
+            drawConnectors(canvasCtx, results.rightHandLandmarks, HAND_CONNECTIONS, { color: '#ffffff', lineWidth: 2 });
+            drawLandmarks(canvasCtx, results.rightHandLandmarks, { color: '#ff0000', lineWidth: 1 });
+          }
+          canvasCtx.restore();
+        });
+
+        const camera = new Camera(videoElement, {
+          onFrame: async () => { await holistic.send({ image: videoElement }); },
+          width: 320, height: 240
+        });
+        camera.start();
+      }
+
+      function toggleTracking() {
+        if (trackingPreview.classList.contains('hidden')) {
+          trackingPreview.classList.remove('hidden');
+          initTracking();
+        } else {
+          trackingPreview.classList.add('hidden');
+          trackingPreview.innerHTML = '';
+        }
+      }
+
+      // --- Initialization ---
+      document.addEventListener('DOMContentLoaded', () => {
+        voiceBtn.addEventListener('click', openPanel);
+        closeBtn.addEventListener('click', closePanel);
+        pipBtn.addEventListener('click', toggleTracking);
+
+
+        btnRecord.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          try { toggleRecord(); } catch (err) { console.error("Record Error:", err); }
+        });
+        btnPlay.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          try { togglePlay(); } catch (err) { console.error("Play Error:", err); }
+        });
+
+        document.querySelectorAll('.voice-option').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            try {
+              const voice = btn.getAttribute('data-voice');
+              if (btn.id !== 'pip-open') {
+                selectVoice(voice);
+                document.querySelectorAll('.voice-option').forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+              }
+            } catch (err) { console.error("Voice Select Error:", err); }
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+
+</html>

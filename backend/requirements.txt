@@ -1,0 +1,13 @@
+torch
+torchvision
+torchaudio
+fastapi
+uvicorn
+python-multipart
+numpy
+scipy
+SpeechRecognition
+httpx
+pydub
+python-multipart
+# Add other RVC specific deps here later (e.g., fairseq, faiss-cpu, etc.)
