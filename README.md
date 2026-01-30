@@ -10,7 +10,27 @@ This project combines 3D Face & Body Tracking with real-time Voice Conversion an
 ## Prerequisites
 1. **Python 3.13.9** installed.
 2. **FFmpeg** installed and added to your system PATH (or configured in `backend/app.py`).
-3. **Internet Connection** (required for CDN scripts & Fish Audio API).
+3. **Git** installed.
+   - *PowerShell* (Windows): `winget install Git.Git`
+   - *Verification:* Run `git --version` in your terminal.
+4. **Internet Connection** (required for CDN scripts & Fish Audio API).
+
+## Downloading the Project
+
+Since this is a public repository, you can verify if you have the files by cloning it.
+
+### Option A: With a GitHub Account (Recommended)
+If you have a GitHub account and have set up your keys:
+```bash
+git clone https://github.com/keaganllee/NYPFYPPROJECT.git
+```
+
+### Option B: Without a GitHub Account (Public Access)
+You can clone public repositories using HTTPS without needing to sign in:
+```bash
+git clone https://github.com/keaganllee/NYPFYPPROJECT.git
+```
+*Note: You will be able to download the code, but you cannot push changes back to the repository without an account and permissions.*
 
 ## Setup & Running
 
@@ -31,8 +51,16 @@ This project combines 3D Face & Body Tracking with real-time Voice Conversion an
 2. Run a simple HTTP server (or use VS Code Live Server):
    ```bash
    python -m http.server 3000
+
    ```
    *Note: If using VS Code Live Server, ensure it runs on port 3000 or update the backend CORS settings if needed.*
+
+   #### Optional: Live Server Extension (VS Code)
+   If you prefer not to use Python's built-in HTTP server, you can use the **Live Server** extension for VS Code.
+   1. Open VS Code extensions (`Ctrl+Shift+X`).
+   2. Search for **"Live Server"** (by Ritwick Dey).
+   3. Install it.
+   4. Right-click `index.html` in the file explorer and select **"Open with Live Server"**.
 3. Open `http://localhost:3000` in your browser.
 
 ## Configuration (IMPORTANT)
