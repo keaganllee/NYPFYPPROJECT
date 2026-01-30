@@ -8,7 +8,7 @@ This project combines 3D Face & Body Tracking with real-time Voice Conversion an
 - **AI TTS:** Integration with Fish Audio for high-quality AI voice generation ("Elmo" voice).
 
 ## Prerequisites
-1. **Python 3.13.9** installed.
+1. **Python 3.13** installed.
 2. **FFmpeg** installed and added to your system PATH (or configured in `backend/app.py`).
 3. **Git** installed.
    - *PowerShell* (Windows): `winget install Git.Git`
