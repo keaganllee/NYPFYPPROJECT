@@ -98,3 +98,8 @@ The "Reference ID" determines which voice model is used for generation. Use this
     *   **Line:** **7**
     *   **Code:** `'reference_id': '193f7f8f649b418382885c5fb4fb7109',`
     *   **Action:** Update this ID if you want to test a different voice model using the test script.
+### 3.Elmo model
+   For specifically the NYP project side please refer to the elmo VRM model and upload the file manually here 
+   <img width="280" height="132" alt="image" src="https://github.com/user-attachments/assets/7c1f52a8-572d-4231-87e8-d47260eacb6f" />
+   and <img width="147" height="71" alt="image" src="https://github.com/user-attachments/assets/55d7afcf-afd7-4c36-89c2-cb05677af297" />
+
