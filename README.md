@@ -6,9 +6,10 @@ This project combines 3D Face & Body Tracking with real-time Voice Conversion an
 - **3D Tracking:** Real-time face and full-body tracking using Mediapipe.
 - **Voice Changer:** Real-time pitch shifting using Tone.js.
 - **AI TTS:** Integration with Fish Audio for high-quality AI voice generation ("Elmo" voice).
+- **Various other tiny features**
 
 ## Prerequisites
-1. **Python 3.13.9** installed.
+1. **Python 3.13** installed.
 2. **FFmpeg** installed and added to your system PATH (or configured in `backend/app.py`).
 3. **Git** installed.
    - *PowerShell* (Windows): `winget install Git.Git`
@@ -30,7 +31,7 @@ You can clone public repositories using HTTPS without needing to sign in:
 ```bash
 git clone https://github.com/keaganllee/NYPFYPPROJECT.git
 ```
-*Note: You will be able to download the code, but you cannot push changes back to the repository without an account and permissions.*
+*Note: You will be able to download the code, but you cannot push changes back to the repository without an account and permissions but you will be able to run everything as per usual*
 
 ## Setup & Running
 
