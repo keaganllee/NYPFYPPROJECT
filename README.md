@@ -67,6 +67,7 @@ git clone https://github.com/keaganllee/NYPFYPPROJECT.git
 ## Configuration (IMPORTANT)
 
 This project requires specific API keys and Model IDs to function correctly. **Please refer to the exact file and line numbers below to make changes.**
+For specifically the NYP FYP Project scope please refer to the elmo VRM model provided and upload it yourself manually.
 
 ### 1. Fish Audio API Key
 To enable the AI voice features (Text-to-Speech), you must provide your Fish Audio API Key.
