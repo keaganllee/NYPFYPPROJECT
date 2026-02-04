@@ -8,6 +8,8 @@ This project combines 3D Face & Body Tracking with real-time Voice Conversion an
 - **AI TTS:** Integration with Fish Audio for high-quality AI voice generation ("Elmo" voice).
 - **Various other tiny features**
 
+
+
 ## Prerequisites
 1. **Python 3.13** installed.
 2. **FFmpeg** installed and added to your system PATH (or configured in `backend/app.py`).
@@ -44,6 +46,8 @@ git clone https://github.com/keaganllee/NYPFYPPROJECT.git
 3. Run the server:
    ```bash
    uvicorn app:app --reload
+   # Or if that fails on Windows:
+   python -m uvicorn app:app --reload
    ```
    The backend runs on `http://localhost:8000`.
 
